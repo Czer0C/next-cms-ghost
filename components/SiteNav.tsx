@@ -105,9 +105,7 @@ export const SiteNav = ({ settings, className, postTitle }: SiteNavProps) => {
             </div>
           )}
         <DarkMode {...{settings}} />
-        {memberSubscriptions && (
-          <SubscribeButton />
-        )}
+      
       </div>
     </nav>
   )

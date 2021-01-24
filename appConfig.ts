@@ -8,7 +8,7 @@ export const fileCache: boolean = true
 
 // Dark mode
 export type DarkMode = 'dark' | 'light' | null
-export const defaultMode: DarkMode = 'light'
+export const defaultMode: DarkMode = 'dark'
 export const overrideOS: boolean = true
 
 // Images
@@ -44,7 +44,7 @@ export const maxDepth: number = 2
 // Override: [{ label: 'Home', url: '/' }]
 // Add new: [{ label: 'Contact', url: '/contact' }]
 import { NavItem } from '@lib/ghost'
-export const customNavigation: NavItem[] = [{ label: 'Contact', url: '/contact' }]
+export const customNavigation: NavItem[] = []
 
 // Incremental Static Regenerations (ISR)
 export const isr: boolean = true

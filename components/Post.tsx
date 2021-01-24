@@ -146,9 +146,7 @@ export const Post = ({ cmsData }: PostProps) => {
                   </div>
                 </section>
 
-                {memberSubscriptions && (
-                  <Subscribe {...{ settings }} />
-                )}
+                
 
                 {commento.enable && (
                   <Comments {...{id: post.id, url: commento.url }} />

@@ -23,6 +23,7 @@ module.exports = withBundleAnalyzer({
       'www.gravatar.com',
       'github.githubassets.com',
       'www.crio.do',
+      'digitalpress.fra1.cdn.digitaloceanspaces.com',
     ],
   },
   reactStrictMode: true,
