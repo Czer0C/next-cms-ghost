@@ -14,6 +14,7 @@ import { seoImage, ISeoImage } from '@meta/seoImage'
 import { generateRSSFeed } from '@utils/rss'
 
 import { BodyClass } from '@helpers/BodyClass'
+import { useEffect } from 'react';
 
 
 /**
@@ -38,11 +39,18 @@ interface IndexProps {
   cmsData: CmsData
 }
 
+
+
+
 export default function Tags({ cmsData }: IndexProps) {
   const router = useRouter()
   if (router.isFallback) return <div>Loading...</div>
   const { settings, posts, tags, seoImage, bodyClass } = cmsData
-  
+
+  let path = ''
+  if (typeof window !== "undefined") {
+    path = window.location.host
+  }
   return (
     <>
       <SEO {...{ settings, seoImage }} />
@@ -57,7 +65,7 @@ export default function Tags({ cmsData }: IndexProps) {
                     {
                         tags.length > 0 ? tags.map(t => (
                             <div className="m-tag-card" key={`tag-${t.id}`}>
-                        <a href={t.url} className={`m-tag-card__link ${!t.feature_image ? 'no-picture' : null}`} aria-label={t.name}>
+                        <a href={`${path}/tag/${t.slug}`} className={`m-tag-card__link ${!t.feature_image ? 'no-picture' : null}`} aria-label={t.name}>
                             {
                                 t.feature_image ?
                                 <img className="m-tag-card__picture" src={t.feature_image} loading="lazy" alt=""/> :
