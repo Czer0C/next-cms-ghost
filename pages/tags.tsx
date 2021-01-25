@@ -42,6 +42,7 @@ export default function Tags({ cmsData }: IndexProps) {
   const router = useRouter()
   if (router.isFallback) return <div>Loading...</div>
   const { settings, posts, tags, seoImage, bodyClass } = cmsData
+  
   return (
     <>
       <SEO {...{ settings, seoImage }} />
@@ -55,7 +56,7 @@ export default function Tags({ cmsData }: IndexProps) {
                 <div className="l-tags-container">
                     {
                         tags.length > 0 ? tags.map(t => (
-                            <div className="m-tag-card">
+                            <div className="m-tag-card" key={`tag-${t.id}`}>
                         <a href={t.url} className={`m-tag-card__link ${!t.feature_image ? 'no-picture' : null}`} aria-label={t.name}>
                             {
                                 t.feature_image ?
@@ -66,7 +67,11 @@ export default function Tags({ cmsData }: IndexProps) {
                             <div className={`m-tag-card__info ${!t.feature_image ? 'no-picture' : null}`}>
                             <h4 className="m-tag-card__name">{t.name}</h4>
                             <span className="m-tag-card__counter">
-                                {t.count.posts === 0 ? 'No posts' : t.count.post === 1 ? '1 post' : `${t.count.posts} posts`}
+                                {
+                                    t.count ?
+                                    t.count.posts === 0 ? 'No posts' : t.count.posts === 1 ? '1 post' : `${t.count.posts} posts` : 
+                                    'No posts'
+                                }
                             </span>
                             </div>
                         </a>
