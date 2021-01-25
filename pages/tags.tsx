@@ -25,7 +25,7 @@ import { BodyClass } from '@helpers/BodyClass'
 
 interface CmsData {
   posts: GhostPostsOrPages
-  tags: GhostTag
+  tags: GhostTags
   settings: GhostSettings
   seoImage: ISeoImage
   previewPosts?: GhostPostsOrPages
