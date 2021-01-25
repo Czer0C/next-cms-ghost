@@ -65,7 +65,7 @@ export default function Tags({ cmsData }: IndexProps) {
                     {
                         tags.length > 0 ? tags.map(t => (
                             <div className="m-tag-card" key={`tag-${t.id}`}>
-                        <a href={`${path}/tag/${t.slug}`} className={`m-tag-card__link ${!t.feature_image ? 'no-picture' : null}`} aria-label={t.name}>
+                        <a href={`/tag/${t.slug}`} className={`m-tag-card__link ${!t.feature_image ? 'no-picture' : null}`} aria-label={t.name}>
                             {
                                 t.feature_image ?
                                 <img className="m-tag-card__picture" src={t.feature_image} loading="lazy" alt=""/> :
