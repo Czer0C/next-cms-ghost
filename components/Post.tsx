@@ -54,7 +54,7 @@ export const Post = ({ cmsData }: PostProps) => {
   if (htmlAst === undefined) throw Error('Post.tsx: htmlAst must be defined.')
 
   const collectionPath = collections.getCollectionByNode(post)
-
+  
   return (
     <>
       <SEO {...{ description, settings, seoImage, article: post }} />
@@ -64,55 +64,42 @@ export const Post = ({ cmsData }: PostProps) => {
         activeClass="nav-post-title-active"
         render={(sticky) => (
           <Layout {...{ bodyClass, settings, sticky }}
-            header={<HeaderPost {...{ settings, sticky, title: post.title }} />}
+            header={<HeaderPost {...{ settings, sticky, title: post.title, featImg }} />}
             previewPosts={<PreviewPosts {...{ settings, primaryTag: post.primary_tag, posts: previewPosts, prev: prevPost, next: nextPost }} />}
           >
             <div className="inner">
               <article className={`post-full ${postClass}`}>
                 <header className="post-full-header">
-                  {post.primary_tag && (
-                    <section className="post-full-tags">
-                      <Link href={resolveUrl({ slug: post.primary_tag.slug, url: post.primary_tag.url })}>
-                        <a>{post.primary_tag.name}</a>
-                      </Link>
-                    </section>
-                  )}
 
                   <h1 ref={sticky && sticky.anchorRef} className="post-full-title">
                     {post.title}
                   </h1>
 
-                  {post.custom_excerpt && <p className="post-full-custom-excerpt">{post.custom_excerpt}</p>}
-
-                  <div className="post-full-byline">
-                    <section className="post-full-byline-content">
-                      <AuthorList {...{ settings, authors: post.authors, isPost: true}} />
-
-                      <section className="post-full-byline-meta">
-                        <h4 className="author-name">
-                          {post.authors?.map((author, i) => (
-                            <div key={i}>
-                              {i > 0 ? `, ` : ``}
-                              <Link href={resolveUrl({ slug: author.slug, url: author.url || undefined })}>
-                                <a>{author.name}</a>
-                              </Link>
-                            </div>
-                          ))}
-                        </h4>
-                        <div className="byline-meta-content">
-                          <time className="byline-meta-date" dateTime={post.published_at || ''}>
+                  {post.primary_tag && (
+                    <section className="post-full-tags">
+                      <Link href={resolveUrl({ slug: post.primary_tag.slug, url: post.primary_tag.url })}>
+                        <a>{post.primary_tag.name}</a>
+                      </Link>
+                      <span className="post-full-tags-date-divider">
+                        
+                      </span>
+                      <span>
+                      <time className="byline-meta-date" dateTime={post.published_at || ''}>
                             {dayjs(post.published_at || '').format('D MMMM, YYYY')}&nbsp;
                               </time>
-                          <span className="byline-reading-time">
-                            <span className="bull">&bull;</span> {readingTime}
-                          </span>
-                        </div>
-                      </section>
+                      </span>
                     </section>
-                  </div>
+                  )}
+                  
+
+                  
+
+                  {post.custom_excerpt && <p className="post-full-custom-excerpt">{post.custom_excerpt}</p>}
+
+                  
                 </header>
 
-                {featImg && (
+                {/* {featImg && (
                   nextImages.feature && featImg.dimensions ? (
                     <figure className="post-full-image" style={{ display: 'inherit' }}>
                       <Image
@@ -135,18 +122,38 @@ export const Post = ({ cmsData }: PostProps) => {
                       <img src={post.feature_image} alt={post.title} />
                     </figure>
                   ))
-                )}
+                )} */}
 
                 <section className="post-full-content">
                   {toc.enable && !!post.toc && (
-                    <TableOfContents {...{toc: post.toc, url: resolveUrl({ collectionPath, slug, url }), maxDepth: toc.maxDepth }} />
+                    <TableOfContents {...{toc: post.toc, url: resolveUrl({ collectionPath, slug, url }), maxDepth: toc.maxDepth, readingTime: readingTime }} />
                   )}
                   <div className="post-content load-external-scripts">
                     <RenderContent htmlAst={htmlAst} />
                   </div>
                 </section>
 
-                
+                <div className="post-full-byline">
+                    <section className="post-full-byline-content">
+                      <AuthorList {...{ settings, authors: post.authors, isPost: true}} />
+
+                      <section className="post-full-byline-meta">
+                        <h4 className="author-name">
+                          {post.authors?.map((author, i) => (
+                            <div key={i}>
+                              {i > 0 ? `, ` : ``}
+                              <Link href={resolveUrl({ slug: author.slug, url: author.url || undefined })}>
+                                <a>{author.name}</a>
+                                
+                              </Link>
+                              <p>{author.bio}</p>
+                            </div>
+                          ))}
+                        </h4>
+                        
+                      </section>
+                    </section>
+                  </div>
 
                 {commento.enable && (
                   <Comments {...{id: post.id, url: commento.url }} />

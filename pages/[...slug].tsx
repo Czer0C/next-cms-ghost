@@ -17,6 +17,7 @@ import { Contact } from '@components/ContactPage'
 import { ISeoImage, seoImage } from '@meta/seoImage'
 import { processEnv } from '@lib/processEnv'
 import { BodyClass } from '@helpers/BodyClass'
+import { contactPage } from '../appConfig';
 
 /**
  *

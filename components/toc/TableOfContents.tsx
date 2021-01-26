@@ -51,7 +51,7 @@ interface TableOfContentsProps {
   maxDepth?: number
 }
 
-export const TableOfContents = ({ toc, url, maxDepth = 2 }: TableOfContentsProps) => {
+export const TableOfContents = ({ toc, url, maxDepth = 2, readingTime }: TableOfContentsProps) => {
     const text = get(useLang())
 
     const [isDesktop, setIsDesktop] = useState(false)
@@ -72,7 +72,7 @@ export const TableOfContents = ({ toc, url, maxDepth = 2 }: TableOfContentsProps
                     <aside className="toc">
                         <nav>
                             <h2>
-                                {text(`TABLE_OF_CONTENTS`)}
+                                {text(`TABLE_OF_CONTENTS`)} - {readingTime}
                             </h2>
                             <ul className="list">
                                 {createItems(toc, url, 1, maxDepth, activeHash, isDesktop)}

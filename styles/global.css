@@ -20,6 +20,18 @@
 /* Reset
 /* ---------------------------------------------------------- */
 
+.tech-stack-container {
+    display: flex !important;
+}
+
+.tech-stack-grid {
+    display: contents;
+}
+
+.post-content.load-external-scripts.about {
+    align-items: unset !important;  
+}
+
 html,
 body,
 div,
@@ -609,3 +621,8 @@ h6 {
 .m-tag-card__info.no-picture {
     color: #b4b4b4;
 }
+
+html.casper .tech-stack-image {
+    margin:10px;
+}
+

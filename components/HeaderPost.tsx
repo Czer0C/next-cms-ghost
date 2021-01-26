@@ -1,19 +1,32 @@
-import { GhostSettings } from 'lib/ghost'
+import { GhostSettings, NextImage } from 'lib/ghost'
 import { SiteNav } from '@components/SiteNav'
 import { StickyNavContainer } from '@effects/StickyNavContainer'
+import { HeaderBackground } from './HeaderBackground';
+
 
 interface HeaderPostProps {
+  featImg: NextImage,
   settings: GhostSettings,
   title?: string
   sticky: StickyNavContainer
 }
 
-export const HeaderPost = ({ settings, title, sticky }: HeaderPostProps) => (
+export const HeaderPost = ({ settings, title, sticky, featImg }: HeaderPostProps) => (
   <header className="site-header" >
     <div className={`outer site-nav-main ${sticky && sticky.state.currentClass}`}>
       <div className="inner">
-        <SiteNav {...{ settings }} className="site-nav" postTitle={title} />
+        <SiteNav {...{ settings }} className="site-nav" postTitle={title}/>
       </div>
     </div>
+    {
+      featImg ? 
+      <HeaderBackground srcImg={featImg.url}>
+        <div className="inner site-header-content">
+          
+          
+        </div>
+      </HeaderBackground> : 
+      null
+    }
   </header>
 )
