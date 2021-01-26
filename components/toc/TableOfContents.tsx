@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { useActiveHash } from '@components/effects/UseActiveHash'
 import { IToC } from '@lib/toc'
 import { useLang, get } from '@utils/use-lang'
-import { readingTime } from '../../lib/readingTime';
 
 const getHeadingIds = (toc: IToC[], traverseFullDepth = true, maxDepth: number, recursionDepth = 1): string[] => {
     const idList = []
