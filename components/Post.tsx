@@ -99,30 +99,6 @@ export const Post = ({ cmsData }: PostProps) => {
                   
                 </header>
 
-                {/* {featImg && (
-                  nextImages.feature && featImg.dimensions ? (
-                    <figure className="post-full-image" style={{ display: 'inherit' }}>
-                      <Image
-                        src={featImg.url}
-                        alt={post.title}
-                        quality={nextImages.quality}
-                        layout="responsive"
-                        sizes={`
-                              (max-width: 350px) 350px,
-                              (max-width: 530px) 530px,
-                              (max-width: 710px) 710px,
-                              (max-width: 1170px) 1170px,
-                              (max-width: 2110px) 2110px, 2000px
-                            `}
-                        {...featImg.dimensions}
-                      />
-                    </figure>
-                  ) : (post.feature_image && (
-                    <figure className="post-full-image">
-                      <img src={post.feature_image} alt={post.title} />
-                    </figure>
-                  ))
-                )} */}
 
                 <section className="post-full-content">
                   {toc.enable && !!post.toc && (

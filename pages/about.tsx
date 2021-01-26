@@ -60,7 +60,7 @@ const AuthorIndex = ({ cmsData }: AuthorIndexProps) => {
               </p> 
                     
                         
-                    <center><h3>My Current Tech Stacks</h3></center>
+              <h3 className="text-center">My Current Tech Stacks</h3>
 
                     <div className="tech-stack-container">
                         <div className="tech-stack-grid">

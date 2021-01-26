@@ -19,7 +19,9 @@
 
 /* Reset
 /* ---------------------------------------------------------- */
-
+.text-center {
+    text-align: center;
+}
 .tech-stack-container {
     display: flex !important;
 }
