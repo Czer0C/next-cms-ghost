@@ -5,10 +5,10 @@ import { HeaderBackground } from './HeaderBackground';
 
 
 interface HeaderPostProps {
-  featImg: NextImage,
   settings: GhostSettings,
-  title?: string
-  sticky: StickyNavContainer
+  title?: string,
+  sticky: StickyNavContainer,
+  featImg: NextImage
 }
 
 export const HeaderPost = ({ settings, title, sticky, featImg }: HeaderPostProps) => (
