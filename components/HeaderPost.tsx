@@ -8,7 +8,7 @@ interface HeaderPostProps {
   settings: GhostSettings,
   title?: string,
   sticky: StickyNavContainer,
-  featureImage?: NextImage | null
+  featImg?: NextImage | null
 }
 
 export const HeaderPost = ({ settings, title, sticky, featImg }: HeaderPostProps) => (
