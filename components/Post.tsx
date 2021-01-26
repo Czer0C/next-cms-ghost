@@ -126,7 +126,7 @@ export const Post = ({ cmsData }: PostProps) => {
 
                 <section className="post-full-content">
                   {toc.enable && !!post.toc && (
-                    <TableOfContents {...{toc: post.toc, url: resolveUrl({ collectionPath, slug, url }), maxDepth: toc.maxDepth, readingTime: string }} />
+                    <TableOfContents {...{toc: post.toc, url: resolveUrl({ collectionPath, slug, url }), maxDepth: toc.maxDepth, readingTime: readingTime }} />
                   )}
                   <div className="post-content load-external-scripts">
                     <RenderContent htmlAst={htmlAst} />
