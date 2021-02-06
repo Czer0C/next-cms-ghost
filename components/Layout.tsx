@@ -1,5 +1,6 @@
 import { ReactFragment } from 'react'
 import Link from 'next/link'
+import { FaFacebookF } from "react-icons/fa";
 
 import { DocumentHead } from '@components/DocumentHead'
 import { StickyNav } from '@components/StickyNav'
@@ -55,11 +56,29 @@ export const Layout = ({ settings, header, children, isHome, sticky, previewPost
         <main ref={isHome && sticky && sticky.anchorRef || null} id="site-main" className={`site-main outer ${errorClass}`}>
           {/* All the main content gets inserted here, index.js, post.js */}
           {children}
+          <a className="top-link hide grow" href="" id="js-top"
+            onClick={() => {
+              document.body.scrollTo({
+                top: 0,
+                behavior: "smooth"
+              })
+              document.documentElement.scrollTo({
+                top: 0,
+                behavior: "smooth"
+              })
+            }}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="topSvg" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4.854 1.146a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L4 2.707V12.5A2.5 2.5 0 0 0 6.5 15h8a.5.5 0 0 0 0-1h-8A1.5 1.5 0 0 1 5 12.5V2.707l3.146 3.147a.5.5 0 1 0 .708-.708l-4-4z" />
+            </svg>
+          </a>
+
+          
         </main>
         {/* For sticky nav bar */}
         {isHome && <StickyNav className={`site-nav ${sticky && sticky.state.currentClass}`}  {...{ siteUrl, settings }} />}
         {/* Links to Previous/Next posts */}
         {previewPosts}
+
 
         {/* The footer at the very bottom of the screen */}
         <footer className="site-footer outer">

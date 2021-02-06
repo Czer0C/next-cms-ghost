@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import dayjs from 'dayjs'
+import { FaArrowUp, FaFacebookSquare, FaTwitterSquare } from "react-icons/fa";
 
 import { readingTime as readingTimeHelper } from '@lib/readingTime'
 
@@ -151,7 +152,38 @@ export const Post = ({ cmsData }: PostProps) => {
                   <Comments {...{ id: post.id, url: commento.url }} />
                 )}
               </article>
+
+              <div className="m-share">
+                <div className="m-share__content js-sticky">
+
+                
+                  {/* <button className="m-icon-button filled in-share progress js-scrolltop" aria-label="Scroll to top" 
+                    onClick={()=>{
+                      document.body.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                      })
+                      document.documentElement.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                      })
+                      }}>
+                    <span className="icon-arrow-top" aria-hidden="true"></span>
+                    <svg aria-hidden="true" viewBox="0 0 32.4844 32.4844">
+                      <circle 
+                      className="progress-ring__circle js-progress" 
+                      fill="transparent" 
+                      r="15.2422" 
+                      stroke-width="2" cx="16.2422" cy="16.2422"
+                      >
+                          
+                      </circle>
+                    </svg>
+                  </button> */}
+                </div>
+              </div>
             </div>
+            
           </Layout>
         )}
       />

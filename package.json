@@ -54,6 +54,7 @@
     "probe-image-size": "^6.0.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-icons": "^4.1.0",
     "react-is": "^17.0.1",
     "refractor": "^3.3.0",
     "rehype": "^11.0.0",
