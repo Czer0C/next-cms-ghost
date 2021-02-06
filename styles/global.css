@@ -538,10 +538,10 @@ h6 {
   }
   
 .shrink { 
-    transition: all .4s ease-in-out; 
+    transition: all .3s ease-in-out; 
 }
 .shrink:hover { 
-    transform: scale(0.98); 
+    transform: scale(0.995); 
 }
 
   .m-tag-card {
@@ -565,6 +565,9 @@ h6 {
     .m-tag-card {
       width: 320px;
       margin: 0 20px 40px
+    }
+    .m-tags.in-post {
+        padding: 0 170px;
     }
   }
   
@@ -641,7 +644,6 @@ h6 {
 .m-tag-card__info.no-picture {
     color: #b4b4b4;
 }
-<<<<<<< HEAD
 
 html.casper .tech-stack-image {
     margin:10px;
@@ -650,9 +652,7 @@ html.casper .tech-stack-image {
 .m-tags.in-post {
     position: relative;
     margin: 0 auto;
-    padding: 0 170px;
-    padding-top: 25px;
-    
+    padding-top: 25px;    
 }
 
 .m-tags ul {

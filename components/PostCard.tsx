@@ -56,9 +56,7 @@ export const PostCard = ({ settings, post, num, isHome }: PostCardProps) => {
             ))}
             
             <Tippy content={<div className="featured-post-tooltip">Featured</div>}  animation="scale-subtle">
-
-              <span className="icon-star m-article-card__featured" aria-hidden="true">
-              
+              <span className="icon-star m-article-card__featured" aria-hidden="true">              
               </span>
             </Tippy>
           </a>
