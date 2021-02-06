@@ -25,6 +25,7 @@ import { collections } from '@lib/collections'
 
 import { ISeoImage } from '@meta/seoImage'
 
+
 interface PostProps {
   cmsData: {
     post: GhostPostOrPage
@@ -42,6 +43,8 @@ export const Post = ({ cmsData }: PostProps) => {
   const { slug, url, meta_description, excerpt } = post
   const description = meta_description || excerpt
 
+  const tags = post.tags?.map(t => t);
+
   const { processEnv } = settings
   const { nextImages, toc, memberSubscriptions, commento } = processEnv
 
@@ -54,7 +57,7 @@ export const Post = ({ cmsData }: PostProps) => {
   if (htmlAst === undefined) throw Error('Post.tsx: htmlAst must be defined.')
 
   const collectionPath = collections.getCollectionByNode(post)
-  
+
   return (
     <>
       <SEO {...{ description, settings, seoImage, article: post }} />
@@ -81,58 +84,71 @@ export const Post = ({ cmsData }: PostProps) => {
                         <a>{post.primary_tag.name}</a>
                       </Link>
                       <span className="post-full-tags-date-divider">
-                        
+
                       </span>
                       <span>
-                      <time className="byline-meta-date" dateTime={post.published_at || ''}>
-                            {dayjs(post.published_at || '').format('D MMMM, YYYY')}&nbsp;
+                        <time className="byline-meta-date" dateTime={post.published_at || ''}>
+                          {dayjs(post.published_at || '').format('D MMMM, YYYY')}&nbsp;
                               </time>
                       </span>
                     </section>
                   )}
-                  
 
-                  
+
+
 
                   {post.custom_excerpt && <p className="post-full-custom-excerpt">{post.custom_excerpt}</p>}
 
-                  
+
                 </header>
 
 
                 <section className="post-full-content">
                   {toc.enable && !!post.toc && (
-                    <TableOfContents {...{toc: post.toc, url: resolveUrl({ collectionPath, slug, url }), maxDepth: toc.maxDepth, readingTime: readingTime }} />
+                    <TableOfContents {...{ toc: post.toc, url: resolveUrl({ collectionPath, slug, url }), maxDepth: toc.maxDepth, readingTime: readingTime }} />
                   )}
                   <div className="post-content load-external-scripts">
                     <RenderContent htmlAst={htmlAst} />
                   </div>
                 </section>
 
-                <div className="post-full-byline">
-                    <section className="post-full-byline-content">
-                      <AuthorList {...{ settings, authors: post.authors, isPost: true}} />
 
-                      <section className="post-full-byline-meta">
-                        <h4 className="author-name">
-                          {post.authors?.map((author, i) => (
-                            <div key={i}>
-                              {i > 0 ? `, ` : ``}
-                              <Link href={resolveUrl({ slug: author.slug, url: author.url || undefined })}>
-                                <a>{author.name}</a>
-                                
-                              </Link>
-                              <p>{author.bio}</p>
-                            </div>
-                          ))}
-                        </h4>
-                        
-                      </section>
+                <section className="m-tags in-post">
+                  <h3 className="m-submenu-title">Tags</h3>
+                  <ul>
+                    {
+                      tags?.map(t => (
+                        <li key={`tags-${t.id}`}>
+                          <a href={`/tag/${t.slug}`} title={t.name}>{t.name}</a>
+                        </li>
+                      ))
+                    }
+                  </ul>
+                </section>
+
+                <div className="post-full-byline">
+                  <section className="post-full-byline-content">
+                    <AuthorList {...{ settings, authors: post.authors, isPost: true }} />
+
+                    <section className="post-full-byline-meta">
+                      <h4 className="author-name">
+                        {post.authors?.map((author, i) => (
+                          <div key={i}>
+                            {i > 0 ? `, ` : ``}
+                            <Link href={resolveUrl({ slug: author.slug, url: author.url || undefined })}>
+                              <a>{author.name}</a>
+
+                            </Link>
+                            <p>{author.bio}</p>
+                          </div>
+                        ))}
+                      </h4>
                     </section>
-                  </div>
+                  </section>
+                </div>
 
                 {commento.enable && (
-                  <Comments {...{id: post.id, url: commento.url }} />
+                  <Comments {...{ id: post.id, url: commento.url }} />
                 )}
               </article>
             </div>

@@ -48,7 +48,7 @@ interface PostOrPageProps {
 const PostOrPageIndex = ({ cmsData }: PostOrPageProps) => {
   const router = useRouter()
   if (router.isFallback) return <div>Loading...</div>
-
+  
   const { isPost, contactPage } = cmsData
   if (isPost) {
     return <Post {...{ cmsData }} />
@@ -164,7 +164,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const { slug, url } = contactPage
     contactPageRoute = resolveUrl({ slug, url })
   }
-
   const customRoutes = (contactPageRoute && [contactPageRoute]) || []
   const pageRoutes = (pages as GhostPostsOrPages).map(({ slug, url }) => resolveUrl({ slug, url }))
   const paths = [...postRoutes, ...pageRoutes, ...customRoutes]
