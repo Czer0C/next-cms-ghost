@@ -8,12 +8,16 @@ import { DarkMode } from '@components/DarkMode'
 import { SubscribeButton } from '@components/SubscribeButton'
 import { useLang, get } from '@utils/use-lang'
 import { GhostSettings, NavItem, NextImage } from '@lib/ghost'
+import React from 'react'
 
 export interface SiteNavProps {
   settings: GhostSettings
   className: string
   postTitle?: string
 }
+
+
+
 
 export const SiteNav = ({ settings, className, postTitle }: SiteNavProps) => {
   const text = get(useLang())
@@ -33,6 +37,22 @@ export const SiteNav = ({ settings, className, postTitle }: SiteNavProps) => {
   const siteLogo = site.logoImage
 
   const navigation = site.navigation
+
+  React.useEffect(() => {
+    window.onscroll = function() {progress()};
+
+    function progress() {
+      let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      let width = document.documentElement.scrollWidth;      
+      let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+      let scrolled = (winScroll / height) * width + 100;
+      
+      let styleElem = document.head.appendChild(document.createElement("style"));
+
+      styleElem.innerHTML = `#progress-nav::after {width: ${scrolled}px;}`;
+    }
+  })
 
   // overwrite navigation if specified in options
   const labels = navigation?.map(item => item.label)
@@ -99,7 +119,8 @@ export const SiteNav = ({ settings, className, postTitle }: SiteNavProps) => {
         </div>
       </div>
       <div className="site-nav-right">
-        
+
+
         {secondaryNav ? (
           <Navigation data={site.secondary_navigation} />
         ) : (
@@ -107,7 +128,7 @@ export const SiteNav = ({ settings, className, postTitle }: SiteNavProps) => {
               <SocialLinks {...{ siteUrl, site }} />
             </div>
           )}
-        <DarkMode {...{settings}} />
+        {/* <DarkMode {...{settings}} /> */}
       
       </div>
     </nav>

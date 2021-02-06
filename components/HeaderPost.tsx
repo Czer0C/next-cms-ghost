@@ -13,7 +13,7 @@ interface HeaderPostProps {
 
 export const HeaderPost = ({ settings, title, sticky, featImg }: HeaderPostProps) => (
   <header className="site-header" >
-    <div className={`outer site-nav-main ${sticky && sticky.state.currentClass}`}>
+    <div className={`outer site-nav-main ${sticky && sticky.state.currentClass}`} id="progress-nav">
       <div className="inner">
         <SiteNav {...{ settings }} className="site-nav" postTitle={title}/>
       </div>

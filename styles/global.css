@@ -866,7 +866,7 @@ html.casper .tech-stack-image {
 }
 
 .topSvg {
-    fill: #b4b4b4;
+    fill: #fff;
     width: 36px;
     height: 36px;
 }
@@ -899,4 +899,12 @@ html.casper .tech-stack-image {
 
 .svg-share-link {
     height: 3rem !important;
+}
+
+.outer.site-nav-main::after {
+    content: "";
+    display: block;
+    width: 0%;
+    margin-left: -100px;
+    border-bottom: solid;
 }
