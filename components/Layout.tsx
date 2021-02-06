@@ -56,8 +56,9 @@ export const Layout = ({ settings, header, children, isHome, sticky, previewPost
         <main ref={isHome && sticky && sticky.anchorRef || null} id="site-main" className={`site-main outer ${errorClass}`}>
           {/* All the main content gets inserted here, index.js, post.js */}
           {children}
-          <a className="top-link hide grow" href="" id="js-top"
-            onClick={() => {
+          <a className="top-link hide grow" href="#" id="js-top"
+            onClick={(e) => {
+              e.preventDefault();
               document.body.scrollTo({
                 top: 0,
                 behavior: "smooth"
