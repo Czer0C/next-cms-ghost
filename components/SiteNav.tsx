@@ -45,7 +45,6 @@ export const SiteNav = ({ settings, className, postTitle }: SiteNavProps) => {
       let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
       let width = document.documentElement.scrollWidth;      
       let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-
       let scrolled = (winScroll / height) * width + 100;
       
       let styleElem = document.head.appendChild(document.createElement("style"));
