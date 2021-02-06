@@ -93,10 +93,13 @@ export const SiteNav = ({ settings, className, postTitle }: SiteNavProps) => {
           <div className="site-nav-content">
             <Navigation data={navigation} />
             {postTitle && <span className={`nav-post-title ${site.logo || `dash`}`}>{postTitle}</span>}
+
+            
           </div>
         </div>
       </div>
       <div className="site-nav-right">
+        
         {secondaryNav ? (
           <Navigation data={site.secondary_navigation} />
         ) : (

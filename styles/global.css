@@ -815,7 +815,7 @@ html.casper .tech-stack-image {
 }
 
 .m-icon-button.filled.in-share.progress.js-scrolltop {
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(194, 159, 159, 0.9);
     border-radius: 50%;
 }
 .icon-arrow-top:before {
@@ -879,3 +879,24 @@ html.casper .tech-stack-image {
     transform: scale(1.2); 
 }
 
+.share-post-link {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    text-align: center;
+    justify-content: center;
+}
+
+.tweet-tooltip {
+    width: 160px;
+    height: 27px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 5px;
+    background-color: black;
+}
+
+.svg-share-link {
+    height: 3rem !important;
+}
