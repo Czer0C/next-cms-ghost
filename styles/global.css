@@ -435,7 +435,7 @@ a {
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 h1,
@@ -526,6 +526,13 @@ h6 {
     }
   }
   
+.shrink { 
+    transition: all .4s ease-in-out; 
+}
+.shrink:hover { 
+    transform: scale(0.98); 
+}
+
   .m-tag-card {
     height: 180px;
     margin: 0 0 20px;
@@ -657,4 +664,55 @@ html.casper .tech-stack-image {
 .m-submenu-title {
     text-align: center;
     padding-bottom: 20px;
+}
+
+/* .m-article-card__featured js-tooltip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 26px;
+    right: 20px;
+    width: 24px;
+    height: 24px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: 2;
+} */
+
+.icon-star:before {
+    content: "⭐";
+    color: transparent;  
+    text-shadow: 0 0 0 black;
+    font-size: 1.2rem;
+    top: -2px;
+    /* position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;  */
+}
+
+.m-article-card__featured {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 26px;
+    right: 20px;
+    width: 27px;
+    height: 27px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: 2;
+}   
+
+.featured-post-tooltip {    
+    width: 85px;
+    height: 27px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 5px;
+    background-color: black;
 }

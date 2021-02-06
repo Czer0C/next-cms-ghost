@@ -39,6 +39,7 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@tippyjs/react": "^4.2.0",
     "@tryghost/content-api": "^1.4.13",
     "@types/refractor": "^3.0.0",
     "cheerio": "^1.0.0-rc.5",
@@ -60,6 +61,7 @@
     "rss": "^1.2.2",
     "sanitize-html": "^2.3.0",
     "slash": "^3.0.0",
+    "tippy.js": "^6.2.7",
     "unist-util-visit": "^2.0.3"
   },
   "devDependencies": {

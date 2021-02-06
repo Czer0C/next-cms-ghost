@@ -239,6 +239,11 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.11.tgz#aeb16f50649a91af79dbe36574b66d0f9e4d9f71"
   integrity sha512-3NsZsJIA/22P3QUyrEDNA2D133H4j224twJrdipXN38dpnIOzAbUDtOwkcJ5pXmn75w7LSQDjA4tO9dm1XlqlA==
 
+"@popperjs/core@^2.4.4":
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.6.0.tgz#f022195afdfc942e088ee2101285a1d31c7d727f"
+  integrity sha512-cPqjjzuFWNK3BSKLm0abspP0sp/IGOli4p5I5fKFAzdS8fvjdOwDCfZqAaIiXd9lPkOWi3SUUfZof3hEb7J/uw==
+
 "@testing-library/dom@^7.28.1":
   version "7.29.4"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.29.4.tgz#1647c2b478789621ead7a50614ad81ab5ae5b86c"
@@ -260,6 +265,13 @@
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@testing-library/dom" "^7.28.1"
+
+"@tippyjs/react@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@tippyjs/react/-/react-4.2.0.tgz#a1cb369d0051099e8a7e4ceb59f809abd9955283"
+  integrity sha512-T6UcHtwtGkvgsBQ4bNp8BtXGxa2ujfOkWUogYkRtN4UVJ2QRgDdFoJeaPxdndnVYFEa2uTVxSFxs8QkSkZ2Gdw==
+  dependencies:
+    tippy.js "^6.2.0"
 
 "@tryghost/content-api@^1.4.13":
   version "1.4.13"
@@ -6021,6 +6033,13 @@ tiny-emitter@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
   integrity sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
+
+tippy.js@^6.2.0, tippy.js@^6.2.7:
+  version "6.2.7"
+  resolved "https://registry.yarnpkg.com/tippy.js/-/tippy.js-6.2.7.tgz#62fb34eda23f7d78151ddca922b62818c1ab9869"
+  integrity sha512-k+kWF9AJz5xLQHBi3K/XlmJiyu+p9gsCyc5qZhxxGaJWIW8SMjw1R+C7saUnP33IM8gUhDA2xX//ejRSwqR0tA==
+  dependencies:
+    "@popperjs/core" "^2.4.4"
 
 to-arraybuffer@^1.0.0:
   version "1.0.1"
