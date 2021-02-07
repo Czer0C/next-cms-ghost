@@ -14,6 +14,7 @@ import { StickyNavContainer } from '@effects/StickyNavContainer'
 import { resolve } from 'url'
 
 import smoothscroll from 'smoothscroll-polyfill';
+import React from 'react';
 
 /**
  * Main layout component
@@ -46,6 +47,19 @@ export const Layout = ({ settings, header, children, isHome, sticky, previewPost
 
   errorClass = errorClass || ``
 
+  React.useEffect(() =>{
+    let btn = document.getElementById('button');
+    document.addEventListener('scroll', () => {
+      if (document.documentElement.scrollTop > 300) {
+        btn?.classList.add('show');
+      } else {
+        btn?.classList.remove('show');
+      }
+    })
+    
+    
+  })
+
   return (
     <>
       <DocumentHead className={bodyClass} />
@@ -57,13 +71,10 @@ export const Layout = ({ settings, header, children, isHome, sticky, previewPost
         <main ref={isHome && sticky && sticky.anchorRef || null} id="site-main" className={`site-main outer ${errorClass}`}>
           {/* All the main content gets inserted here, index.js, post.js */}
           {children}
-          <a className="top-link hide grow" href="#" id="js-top"
+          {/* <a className="top-link hide grow" href="#" id="js-top"
             onClick={(e) => {
               e.preventDefault();
-              smoothscroll.polyfill();
-
-
-              
+              smoothscroll.polyfill();            
 
               document.body.scrollTo({
                 top: 0,
@@ -77,8 +88,28 @@ export const Layout = ({ settings, header, children, isHome, sticky, previewPost
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="topSvg" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M4.854 1.146a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L4 2.707V12.5A2.5 2.5 0 0 0 6.5 15h8a.5.5 0 0 0 0-1h-8A1.5 1.5 0 0 1 5 12.5V2.707l3.146 3.147a.5.5 0 1 0 .708-.708l-4-4z" />
             </svg>
-          </a>
+          </a> */}
+          <button id="button" onClick={(e)=>{
+            e.preventDefault();
 
+            
+
+
+            document.body.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            })
+            document.documentElement.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            })
+          }}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="icon-btn-top" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708l6-6z"/>
+  <path fill-rule="evenodd" d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
+          </svg>
+          
+          </button>
           
         </main>
         {/* For sticky nav bar */}
