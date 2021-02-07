@@ -61,7 +61,11 @@ export const Layout = ({ settings, header, children, isHome, sticky, previewPost
             onClick={(e) => {
               e.preventDefault();
 
-              window.scroll({top: 0, behavior: "smooth"})
+              window.scroll({
+                top: 0,
+                left: 0, 
+                behavior: "smooth"
+              });
 
               // document.body.scrollTo({
               //   top: 0,
