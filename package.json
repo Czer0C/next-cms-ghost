@@ -42,6 +42,7 @@
     "@tippyjs/react": "^4.2.0",
     "@tryghost/content-api": "^1.4.13",
     "@types/refractor": "^3.0.0",
+    "aaxios": "^0.18.1",
     "cheerio": "^1.0.0-rc.5",
     "dayjs": "^1.10.3",
     "email-validator": "^2.0.4",
