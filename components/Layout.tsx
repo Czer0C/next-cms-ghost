@@ -13,6 +13,7 @@ import { GhostSettings } from '@lib/ghost'
 import { StickyNavContainer } from '@effects/StickyNavContainer'
 import { resolve } from 'url'
 
+import smoothscroll from 'smoothscroll-polyfill';
 
 /**
  * Main layout component
@@ -33,7 +34,6 @@ interface LayoutProps {
   bodyClass: string
   errorClass?: string
 }
-
 
 export const Layout = ({ settings, header, children, isHome, sticky, previewPosts, bodyClass, errorClass }: LayoutProps) => {
   const text = get(useLang())
@@ -60,21 +60,19 @@ export const Layout = ({ settings, header, children, isHome, sticky, previewPost
           <a className="top-link hide grow" href="#" id="js-top"
             onClick={(e) => {
               e.preventDefault();
+              smoothscroll.polyfill();
 
-              window.scroll({
+
+              
+
+              document.body.scrollTo({
                 top: 0,
-                left: 0, 
                 behavior: "smooth"
-              });
-
-              // document.body.scrollTo({
-              //   top: 0,
-              //   behavior: "smooth"
-              // })
-              // document.documentElement.scrollTo({
-              //   top: 0,
-              //   behavior: "smooth"
-              // })
+              })
+              document.documentElement.scrollTo({
+                top: 0,
+                behavior: "smooth"
+              })
             }}>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="topSvg" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M4.854 1.146a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L4 2.707V12.5A2.5 2.5 0 0 0 6.5 15h8a.5.5 0 0 0 0-1h-8A1.5 1.5 0 0 1 5 12.5V2.707l3.146 3.147a.5.5 0 1 0 .708-.708l-4-4z" />
