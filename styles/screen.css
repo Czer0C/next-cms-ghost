@@ -273,6 +273,17 @@ html.casper .site-archive-header .no-image .site-header-content {
     html.casper .site-archive-header .no-image .site-header-content {
         padding: 12vw 0 20px;
     }
+
+    #button {
+        margin: -20px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .icon-btn-top {
+        width: 30px;
+        height: 30px;
+    }
 }
 
 
