@@ -571,10 +571,10 @@ h6 {
   }
   
 .shrink { 
-    transition: all .3s ease-in-out; 
+    transition:all .2s cubic-bezier(.02,.01,.47,1);
 }
 .shrink:hover { 
-    transform: scale(0.995); 
+    transform: translateY(-3px);
 }
 
   .m-tag-card {
