@@ -152,7 +152,7 @@ export const Post = ({ cmsData }: PostProps) => {
                 <div className="share-post-link">
 
                   <Tippy content={<div className="tweet-tooltip">Tweet this post</div>} placement="bottom" animation="scale-subtle">
-                    <a href={`https://twitter.com/intent/tweet?text=${encodeURI(post.title || '')}&url=${processEnv.siteUrl}/${post.slug}/`}
+                    <a href={`https://twitter.com/intent/tweet?text=${encodeURI(post.title || '')}&url=${process.env.SITE_URL}/${post.slug}/`}
                       className="share-post-link social-link social-link-tw"
                       target="_blank" rel="noopener noreferrer" title="Twitter">
                       <svg viewBox="0 0 32 32" className="svg-share-link">
@@ -163,7 +163,7 @@ export const Post = ({ cmsData }: PostProps) => {
                   </Tippy>
 
                   <Tippy content={<div className="tweet-tooltip">Share on Facebook</div>} placement="bottom" animation="scale-subtle">
-                    <a href={`https://www.facebook.com/sharer/sharer.php?u=${processEnv.siteUrl}/${post.slug}/`}
+                    <a href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.SITE_URL}/${post.slug}/`}
                       className="share-post-link social-link social-link-tw"
                       target="_blank" rel="noopener noreferrer" title="Twitter">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="svg-share-link">

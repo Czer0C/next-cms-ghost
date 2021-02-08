@@ -90,7 +90,7 @@ export const authorSameAs = (author: Author) => {
 }
 
 const getJsonLd = ({ title, description, canonical, seoImage, settings, sameAs, article }: SEOProps) => {
-  const siteUrl = settings.processEnv.siteUrl
+  const siteUrl = process.env.SITE_URL!
   const pubLogoUrl = settings.logo || url.resolve(siteUrl, siteIcon)
   const type = article ? 'Article' : 'WebSite'
 

@@ -5,7 +5,6 @@ import axios from 'axios';
 import { CloseIcon } from './icons/CloseIcon';
 import { SearchIcon } from './icons/SearchIcon';
 import { ghostAPIKey, processEnv } from '@lib/processEnv';
-import { useRef } from 'react';
 
 const postsAPI = `https://gaftoblog.digitalpress.blog/ghost/api/v3/content/posts/?key=${ghostAPIKey}`;
 
@@ -62,7 +61,6 @@ export const Search = () => {
                     p.title.toLowerCase().includes(search))
         );
     }
-
     return (
         <>
             <a href="#" id="open-search-icon" className="nav-search grow" target="_blank" rel="noopener noreferrer" title="Search" onClick={(event) => handleOpenSearch(event, true)}>
@@ -96,7 +94,7 @@ export const Search = () => {
                         {
                             searchResults.map((s: any) => (
                                 <article className="m-result">
-                                    <a href={`${processEnv.siteUrl}/${s.slug}`} className="m-result__link">
+                                    <a href={`${process.env.SITE_URL}/${s.slug}`} className="m-result__link">
                                         <h3 className="m-result__title">{s.title}</h3>
                                         <span className="m-result__date">{new Date(s.created_at).toISOString().slice(0, 10)}</span>
                                     </a>
