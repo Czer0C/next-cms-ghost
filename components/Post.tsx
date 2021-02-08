@@ -26,6 +26,7 @@ import { collections } from '@lib/collections'
 
 import { ISeoImage } from '@meta/seoImage'
 import Tippy from '@tippyjs/react';
+import { Search } from './Search';
 
 interface PostProps {
   cmsData: {
@@ -78,7 +79,6 @@ export const Post = ({ cmsData }: PostProps) => {
                   <h1 ref={sticky && sticky.anchorRef} className="post-full-title">
                     {post.title}
                   </h1>
-
                   {post.primary_tag && (
                     <section className="post-full-tags">
                       <Link href={resolveUrl({ slug: post.primary_tag.slug, url: post.primary_tag.url })}>

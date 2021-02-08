@@ -721,6 +721,15 @@ html.casper .tech-stack-image {
     padding-bottom: 20px;
 }
 
+.search-modal {
+    flex: 0 1 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 0;
+    height: 64px;
+}
+
 /* .m-article-card__featured js-tooltip {
     display: flex;
     align-items: center;
@@ -1037,6 +1046,13 @@ html.casper .tech-stack-image {
     padding: 80px 20px 40px;
     margin: 0 auto;
 }
+
+#open-search-icon {
+    color: #fff;
+    opacity: 0.8;
+    transition: opacity 0.35s ease-in-out;
+}
+
 
 @media only screen and (min-width: 48rem){
 .m-search__form {

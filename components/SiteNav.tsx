@@ -124,15 +124,20 @@ export const SiteNav = ({ settings, className, postTitle }: SiteNavProps) => {
           
         </div>
       </div>
-      <div className="site-nav-right">
 
-        {secondaryNav ? (
+      
+
+      <div className="site-nav-right">
+        
+      <Search/>
+        {/* {secondaryNav ? (
           <Navigation data={site.secondary_navigation} />
         ) : (
             <div className="social-links">
               <SocialLinks {...{ siteUrl, site }} />
             </div>
-          )}
+          )} */}
+
         {/* <DarkMode {...{settings}} /> */}
       
       </div>

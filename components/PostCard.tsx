@@ -15,6 +15,7 @@ import { PostClass } from '@helpers/PostClass'
 import { collections } from '@lib/collections'
 import { GhostPostOrPage, GhostSettings } from '@lib/ghost'
 import { HoverOnAvatar } from './effects/HoverOnAvatar';
+import { RenderContent } from './RenderContent';
 
 interface PostCardProps {
   settings: GhostSettings
@@ -33,6 +34,7 @@ export const PostCard = ({ settings, post, num, isHome }: PostCardProps) => {
   const postClass = PostClass({ tags: post.tags, isFeatured: post.featured, isImage: !!featImg })
   const large = (featImg && isHome && num !== undefined && 0 === num % 6 && `post-card-large`) || ``
   const authors = post?.authors?.filter((_, i) => (i < 2 ? true : false))
+
   return (
     <article className={`post-card shrink ${postClass} ${large}`}>
       { featImg && (
@@ -68,12 +70,14 @@ export const PostCard = ({ settings, post, num, isHome }: PostCardProps) => {
         <Link href={url}>
           <a className="post-card-content-link">
             <header className="post-card-header">
-              {post.primary_tag && <div className="post-card-primary-tag">{post.primary_tag.name}{post.featured ? ' ⭐' : ''}</div>}
+              {post.primary_tag && <div className="post-card-primary-tag">{post.primary_tag.name}{post.featured && !post.featureImage ? ' ⭐' : ''}</div>}
               <h2 className="post-card-title">{post.title}</h2>
             </header>
             <section className="post-card-excerpt">
               {/* post.excerpt *is* an excerpt and does not need to be truncated any further */}
               <p>{post.excerpt}</p>
+
+              
             </section>
           </a>
         </Link>

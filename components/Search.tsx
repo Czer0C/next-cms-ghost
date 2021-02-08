@@ -5,6 +5,7 @@ import axios from 'axios';
 import { CloseIcon } from './icons/CloseIcon';
 import { SearchIcon } from './icons/SearchIcon';
 import { ghostAPIKey, processEnv } from '@lib/processEnv';
+import { useRef } from 'react';
 
 const postsAPI = `https://gaftoblog.digitalpress.blog/ghost/api/v3/content/posts/?key=${ghostAPIKey}`;
 
@@ -19,8 +20,20 @@ export const Search = () => {
             const result = await axios(postsAPI);
             setPosts(result.data.posts);
         };
-
         fetchData();
+
+        function handlekeydownEvent(event: any) {            
+            const { key, keyCode } = event;
+            if (keyCode === 27) {
+                handleOpenSearch(event, false);
+            }
+        }
+
+        document.addEventListener('keydown', handlekeydownEvent)
+        return () => {
+            document.removeEventListener('keydown', handlekeydownEvent)
+        }
+
     }, []);
 
     const handleOpenSearch = (event: any, openSearch: boolean) => {
@@ -29,7 +42,8 @@ export const Search = () => {
         let searchModal = document.getElementsByClassName('m-search js-search')[0];
 
         if (openSearch === true) {
-            searchModal?.classList.add('opened');
+            searchModal?.classList.add('opened');   
+            document.getElementById('search-input')?.focus();
         } else {
             searchModal?.classList.remove('opened');
         }
@@ -51,7 +65,7 @@ export const Search = () => {
 
     return (
         <>
-            <a href="#" className="nav-search" target="_blank" rel="noopener noreferrer" title="Search" onClick={(event) => handleOpenSearch(event, true)}>
+            <a href="#" id="open-search-icon" className="nav-search grow" target="_blank" rel="noopener noreferrer" title="Search" onClick={(event) => handleOpenSearch(event, true)}>
                 <SearchIcon />
             </a>
 

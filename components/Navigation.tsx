@@ -47,11 +47,11 @@ export const Navigation = ({ data, navClass }: NavigationProps) => {
   return (
     <ul className="nav" role="menu">
       {items}
-      <li className="nav-search" role="menuitem">
+      {/* <li className="search-modal" role="menuitem">
         <div>
           <Search/>
         </div>
-      </li>
+      </li> */}
     </ul>
   )
 }
