@@ -42,12 +42,17 @@ export const SiteNav = ({ settings, className, postTitle }: SiteNavProps) => {
   React.useEffect(() => {
     window.onscroll = function() {progress()};
 
-    function progress() {
-      let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      let width = document.documentElement.scrollWidth;      
-      let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      let scrolled = (winScroll / height) * width + 100;
-      
+    function progress() {      
+      let content = document.getElementById('site-main');
+
+      let winScroll = document.documentElement.scrollTop;
+
+      let width = document.documentElement.scrollWidth;  
+
+      let height = content?.scrollHeight! - winScroll;
+
+      let scrolled = (winScroll! / height!) * width;
+
       let styleElem = document.head.appendChild(document.createElement("style"));
 
       styleElem.innerHTML = `#progress-nav::after {width: ${scrolled}px;}`;
