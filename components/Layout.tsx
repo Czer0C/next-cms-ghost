@@ -1,6 +1,5 @@
 import { ReactFragment } from 'react'
 import Link from 'next/link'
-import { FaFacebookF } from "react-icons/fa";
 
 import { DocumentHead } from '@components/DocumentHead'
 import { StickyNav } from '@components/StickyNav'
@@ -13,10 +12,7 @@ import { GhostSettings } from '@lib/ghost'
 import { StickyNavContainer } from '@effects/StickyNavContainer'
 import { resolve } from 'url'
 
-import smoothscroll from 'smoothscroll-polyfill';
-import React from 'react';
-import { SearchIcon } from './icons/SearchIcon';
-import { ScrollTopIcon } from './icons/ScrollTopIcon';
+import { ScrollToTopButton } from './button/ScrollToTopButton';
 
 /**
  * Main layout component
@@ -49,19 +45,6 @@ export const Layout = ({ settings, header, children, isHome, sticky, previewPost
 
   errorClass = errorClass || ``
 
-  React.useEffect(() =>{
-    let btn = document.getElementById('button');
-    document.addEventListener('scroll', () => {
-      if (document.documentElement.scrollTop > 300) {
-        btn?.classList.add('show');
-      } else {
-        btn?.classList.remove('show');
-      }
-    })
-    
-    
-  })
-
   return (
     <>
       <DocumentHead className={bodyClass} />
@@ -71,26 +54,10 @@ export const Layout = ({ settings, header, children, isHome, sticky, previewPost
         {header}
         {/* The main content area */}
         <main ref={isHome && sticky && sticky.anchorRef || null} id="site-main" className={`site-main outer ${errorClass}`}>
-          {/* All the main content gets inserted here, index.js, post.js */}
-          {children}
-          
-          <button id="button" onClick={(e)=>{
-            e.preventDefault();
-            smoothscroll.polyfill();
+        {/* All the main content gets inserted here, index.js, post.js */}
+        {children}
 
-            document.body.scrollTo({
-              top: 0,
-              behavior: "smooth"
-            })
-            document.documentElement.scrollTo({
-              top: 0,
-              behavior: "smooth"
-            })
-          }}>
-
-            <ScrollTopIcon/>
-
-          </button>
+        <ScrollToTopButton/>
           
         </main>
         {/* For sticky nav bar */}
