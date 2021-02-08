@@ -240,15 +240,13 @@ html.casper .site-archive-header .no-image .site-header-content {
     padding: 5vw 0 10px;
     border-bottom: 1px solid color-mod(var(--lightgrey) l(+12%));
 }
+
 .site-header-background {
     height: 400px;
 }
 
 /* Special header styles for smaller screens */
 
-@media (min-width: 900px) {
-    
-}
 
 @media (max-width: 900px) {
     
@@ -943,6 +941,9 @@ make sure this only happens on large viewports / desktop-ish devices.
 
     .site-header-background {
         height: 200px;
+    }
+    .site-home-header > .site-header-background {
+        height: 300px;
     }
 }
 
