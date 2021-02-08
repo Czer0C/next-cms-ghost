@@ -9,6 +9,7 @@ import { SubscribeButton } from '@components/SubscribeButton'
 import { useLang, get } from '@utils/use-lang'
 import { GhostSettings, NavItem, NextImage } from '@lib/ghost'
 import React from 'react'
+import { Search } from './Search';
 
 export interface SiteNavProps {
   settings: GhostSettings
@@ -81,6 +82,7 @@ export const SiteNav = ({ settings, className, postTitle }: SiteNavProps) => {
     <nav className={className}>
       <div className="site-nav-left-wrapper">
         <div className="site-nav-left">
+          
           <Link href={resolve(siteUrl, '')}>
             {siteLogo && nextImages.feature ? (
               <a className="site-nav-logo">
@@ -109,16 +111,15 @@ export const SiteNav = ({ settings, className, postTitle }: SiteNavProps) => {
               ))
             }
           </Link>
+          
           <div className="site-nav-content">
             <Navigation data={navigation} />
             {postTitle && <span className={`nav-post-title ${site.logo || `dash`}`}>{postTitle}</span>}
-
-            
           </div>
+          
         </div>
       </div>
       <div className="site-nav-right">
-
 
         {secondaryNav ? (
           <Navigation data={site.secondary_navigation} />

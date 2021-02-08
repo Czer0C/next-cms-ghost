@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ReactFragment } from 'react'
 import { NavItem } from '@lib/ghost'
+import { Search } from './Search';
 
 /**
  * Navigation component
@@ -46,6 +47,11 @@ export const Navigation = ({ data, navClass }: NavigationProps) => {
   return (
     <ul className="nav" role="menu">
       {items}
+      <li className="nav-search" role="menuitem">
+        <div>
+          <Search/>
+        </div>
+      </li>
     </ul>
   )
 }
