@@ -4,11 +4,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { CloseIcon } from './icons/CloseIcon';
 import { SearchIcon } from './icons/SearchIcon';
-import { processEnv } from '@lib/processEnv';
+import { ghostAPIKey, processEnv } from '@lib/processEnv';
 
-const postsAPI = `https://gaftoblog.digitalpress.blog/ghost/api/v3/content/posts/?key=2a4cfcc3d2ee9943aef20991b9`;
-const siteURL = processEnv.siteUrl;
-
+const postsAPI = `https://gaftoblog.digitalpress.blog/ghost/api/v3/content/posts/?key=${ghostAPIKey}`;
 
 export const Search = () => {
     const [openSearch, setOpenSearch] = React.useState(false);
@@ -84,7 +82,7 @@ export const Search = () => {
                         {
                             searchResults.map((s: any) => (
                                 <article className="m-result">
-                                    <a href={`${siteURL}/${s.slug}`} className="m-result__link">
+                                    <a href={`${processEnv.siteUrl}/${s.slug}`} className="m-result__link">
                                         <h3 className="m-result__title">{s.title}</h3>
                                         <span className="m-result__date">{new Date(s.created_at).toISOString().slice(0, 10)}</span>
                                     </a>

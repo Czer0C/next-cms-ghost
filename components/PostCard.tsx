@@ -68,7 +68,7 @@ export const PostCard = ({ settings, post, num, isHome }: PostCardProps) => {
         <Link href={url}>
           <a className="post-card-content-link">
             <header className="post-card-header">
-              {post.primary_tag && <div className="post-card-primary-tag">{post.primary_tag.name}{post.featured ? ' - Starred' : ''}</div>}
+              {post.primary_tag && <div className="post-card-primary-tag">{post.primary_tag.name}{post.featured ? ' ⭐' : ''}</div>}
               <h2 className="post-card-title">{post.title}</h2>
             </header>
             <section className="post-card-excerpt">

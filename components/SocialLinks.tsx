@@ -19,6 +19,10 @@ export const SocialLinks = ({ siteUrl, site }: SocialLinkProps) => {
 
   return (
     <>
+    <a href="#" onClick={(e) => e.preventDefault()} className="social-link">
+      <Search/>
+    </a>
+
       {site.facebook && (
         <a href={facebookUrl} className="social-link social-link-fb" target="_blank" rel="noopener noreferrer" title="Facebook">
           <FacebookIcon />
